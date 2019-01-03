@@ -3,20 +3,7 @@ language: node_js
 node_js:
 - '8'
 
-cache:
-  directories:
-  - "$HOME/.npm"
-  - node_modules
-  - packages/lib/node_modules
-  - packages/lib/lib
-  - packages/cli/node_modules
-  - packages/cli/lib
-  - packages/vouching/node_modules
-  - packages/docs/node_modules
-  - examples/lib-simple/node_modules
-  - examples/lib-complex/node_modules
-  - tests/cli-app/node_modules
-  - tests/cli-app/workdir/node_modules
+cache: npm
 
 stages:
   - prepare cache
@@ -36,10 +23,12 @@ jobs:
 
     # Initial stage with lib tests
     - stage: lib tests
+      install: pwd # Override to avoid npm install.
       script: npx lerna run test --concurrency=1 --stream=true --scope=zos-lib
 
     # Test stage for Vouching
     - stage: tests
+      install: pwd # Override to avoid npm install.
       name: Vouching tests
       script: npx lerna run test --concurrency=1 --stream=true --scope=zos-vouching
 
@@ -59,6 +48,7 @@ jobs:
 
     # Test stage for complex-example
     - stage: tests
+      install: pwd # Override to avoid npm install.
       name: Complex example tests
       script: npx lerna run test --concurrency=1 --stream=true --scope=zos-lib-complex-example
 
