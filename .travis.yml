@@ -4,9 +4,6 @@ node_js:
 - '8'
 
 cache:
-  # Cache all node_modules directories, but not build dirs, since truffle seems to generate
-  # different artifacts on every run, causing travis to re-generate the cache every time.
-  # This requires us to run lerna bootstrap on every stage, to rebuild contracts.
   directories:
   - "$HOME/.npm"
   - node_modules
@@ -18,10 +15,8 @@ cache:
   - examples/lib-complex/node_modules
   - tests/cli-app/node_modules
   - tests/cli-app/workdir/node_modules
-  # Cache the lib dirs as well.
   - packages/lib/lib
   - packages/cli/lib
-  # Cache the build dirs.
   - packages/lib/build
   - packages/cli/build
 
@@ -39,7 +34,7 @@ jobs:
       script: true
       install:
         - npm install
-        - npx lerna bootstrap --loglevel=debug
+        - npx lerna bootstrap --hoist --loglevel=debug
 
     # Initial stage with lib tests
     - stage: lib tests
@@ -60,9 +55,6 @@ jobs:
     - stage: tests
       name: CLI tests on OSX
       os: osx
-      install:
-        - npm install
-        - lerna bootstrap --loglevel=debug
       script: npx lerna run test --concurrency=1 --stream=true --scope=zos
 
     # Test stage for complex-example
