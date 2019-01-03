@@ -7,5 +7,8 @@ module.exports = {
       gasPrice: 5e9,
       network_id: '*',
     }
+  },
+  mocha: {
+    bail: true
   }
 }
