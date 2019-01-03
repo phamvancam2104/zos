@@ -34,7 +34,7 @@ jobs:
       script: true
       install:
         - npm install
-        - npx lerna bootstrap --hoist --loglevel=debug
+        - npx lerna bootstrap --loglevel=debug
 
     # Initial stage with lib tests
     - stage: lib tests
