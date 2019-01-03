@@ -21,6 +21,9 @@ cache:
   # Cache the lib dirs as well.
   - packages/lib/lib
   - packages/cli/lib
+  # Cache the build dirs.
+  - packages/lib/build
+  - packages/cli/build
 
 stages:
   - prepare cache
@@ -57,6 +60,9 @@ jobs:
     - stage: tests
       name: CLI tests on OSX
       os: osx
+      install:
+        - npm install
+        - lerna bootstrap --loglevel=debug
       script: npx lerna run test --concurrency=1 --stream=true --scope=zos
 
     # Test stage for complex-example
