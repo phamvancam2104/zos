@@ -49,12 +49,14 @@ jobs:
     - stage: tests
       name: CLI tests on Linux
       os: linux
+      install: pwd # Override install to avoid npm install to be called.
       script: npx lerna run test --concurrency=1 --stream=true --scope=zos
 
     # Test stage for CLI on OSX
     - stage: tests
       name: CLI tests on OSX
       os: osx
+      install: pwd # Override install to avoid npm install to be called.
       script: npx lerna run test --concurrency=1 --stream=true --scope=zos
 
     # Test stage for complex-example
