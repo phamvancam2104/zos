@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import { promisify } from 'util';
 import { FileSystem } from 'zos-lib';
+import TruffleConfig from 'truffle-config';
 
 const Truffle = {
 
@@ -49,7 +50,6 @@ const Truffle = {
   getConfig(): any | never {
     if (this.config) return this.config;
     try {
-      const TruffleConfig = require('truffle-config');
       this.config = TruffleConfig.detect({ logger: console });
       return this.config;
     } catch (error) {
