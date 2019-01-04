@@ -8,6 +8,7 @@ cache:
   - "$HOME/.npm"
   - node_modules
   - packages/lib/node_modules
+  - packages/lib/lib
   - packages/cli/node_modules
   - packages/vouching/node_modules
   - packages/docs/node_modules
