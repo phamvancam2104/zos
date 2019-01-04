@@ -9,7 +9,7 @@ cache:
   - node_modules
   - packages/lib/node_modules
   - packages/lib/lib
-  - packages/cli
+  - packages/cli/node_modules
   - packages/cli/lib
   - packages/cli/truffle.js
   - packages/cli/truffle-config.js
