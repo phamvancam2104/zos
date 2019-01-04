@@ -11,6 +11,7 @@ cache:
   - packages/lib/lib
   - packages/cli
   - packages/cli/lib
+  - packages/cli/truffle.js
   - packages/cli/truffle-config.js
   - packages/vouching/node_modules
   - packages/docs/node_modules
