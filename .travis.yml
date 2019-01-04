@@ -41,7 +41,7 @@ jobs:
 
     # Test stage for Vouching
     - stage: tests
-      install: pwd # Override to avoid npm install.
+      install: npx lerna run compile-contracts
       name: Vouching tests
       script: npx lerna run test --concurrency=1 --stream=true --scope=zos-vouching
 
@@ -61,7 +61,7 @@ jobs:
 
     # Test stage for complex-example
     - stage: tests
-      install: pwd # Override to avoid npm install.
+      install: npx lerna run compile-contracts
       name: Complex example tests
       script: npx lerna run test --concurrency=1 --stream=true --scope=zos-lib-complex-example
 
