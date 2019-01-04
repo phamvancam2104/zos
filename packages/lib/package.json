@@ -48,7 +48,7 @@
     "openzeppelin-solidity": "~1.10.0",
     "semver": "^5.5.1",
     "truffle-flattener": "^1.2.8",
-    "web3": "^0.18.4"
+    "web3": "^0.20.6"
   },
   "devDependencies": {
     "@types/mocha": "^5.2.5",
